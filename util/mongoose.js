@@ -3,10 +3,15 @@ const mongoose = require("mongoose");
 const db_url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 // connect ORM to database server
-mongoose.connect(`${db_url}/comics`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+try {
+  mongoose.connect(`${db_url}/comics`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+} catch (err) {
+  console.log(err);
+  return err;
+}
 
 const Book = mongoose.model("Book", {
   publisher: String,
