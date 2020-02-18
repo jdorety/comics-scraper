@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "start": "nodemon index.js"
+    "server": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/jdorety/comics-scraper#readme",
   "devDependencies": {
+    "jest": "^25.1.0",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
