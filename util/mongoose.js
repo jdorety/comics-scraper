@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const db_url = process.env.DATABASE_URL || "mongodb://localhost:27017";
+const db_url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 // connect ORM to database server
 mongoose.connect(`${db_url}/comics`, {
