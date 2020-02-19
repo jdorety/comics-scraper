@@ -3,15 +3,10 @@ const mongoose = require("mongoose");
 const db_url = process.env.MONGODB_URI || "mongodb://localhost:27017";
 
 // connect ORM to database server
-try {
-  mongoose.connect(`${db_url}/comics`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
-} catch (err) {
-  console.log(err);
-  return err;
-}
+mongoose.connect(`${db_url}/comics`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 const Book = mongoose.model("Book", {
   publisher: String,
@@ -39,4 +34,6 @@ transformer
   .then(() => console.log("transforming sound"))
   .catch(err => console.log(err));
 
-module.exports = mongoose;
+db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+module.exports = db;

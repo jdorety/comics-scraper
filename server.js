@@ -1,16 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
-const mongoose = require("./util/mongoose");
+const db = require("./util/mongoose");
 
 const server = express();
-
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function() {
-  // we're connected!
-  console.log("whoop whoop");
-});
 
 server.use(cors());
 server.use(helmet());
