@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const dbUrl = process.env.MONGODB_URI || "mongodb://localhost:27017";
+const dbUrl = process.env.MONGODB_URI || "mongodb://localhost:27017/comics";
 
 // connect ORM to database server
-mongoose.connect(`${dbUrl}/comics`, {
+mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
